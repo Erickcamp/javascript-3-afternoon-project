@@ -50,8 +50,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
-
+let employeeUpdater = () => {
+  for(let i = 0; i < employees.length; i++){
+    if(employees[i].firstName === 'Theo'){
+      delete employees[i]
+    } else if (employees[i].firstName = 'Lorie'){
+      employees[i].department = 'HR'
+    }
+  }
+  return employees
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -68,10 +76,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
-
-
-
+let removeDuplicates = (arr) => {
+ for (let i = 0; i < arr.length; i++){
+   for(let j = arr.length -1;j > i; j--){
+     if(arr[i] === arr[j]){
+       arr.splice(j, 1)
+     }
+   }
+ }
+ return arr
+}
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
@@ -96,9 +110,9 @@ var cat = {
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+
+var grumpyActivity = cat.catFriends[0].activities[1]
+var fluffy2ndFriend = cat.catFriends[1].name
 
 
 
@@ -138,7 +152,14 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+let recordCleaner = () => {
+  for(let i = 0; i < myCar.accidents.length; i++){
+    myCar.accidents[i].atFaultForAccident = false
+    }
+  }
+
+
+
 
 
 
@@ -157,6 +178,36 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
     4. Return the modified numsArr.
 */
 
-//Code Here
+// let looper = () => {
+//   for(let i = 0; i < numsArr.length; i++){
+//     if (i % 2 === 0){
+//       return 'even'
+//     } else if (i % 2 === 1){
+//       return 'odd'
+//     }
+//   }
+//   return numsArr
+// }
 
 
+// let looper = () => {
+//   for(let i = 0; i < numsArr.length; i++){
+//     for(let j = 0; j < numsArr[i].length; j++){
+//       if(numsArr[i][j] % 2 === 0){
+//         return 'even'
+//       } else if(numsArr[i][j] % 2 === 1){
+//         return 'odd'
+//       }
+//     }
+//   }
+//   return numsArr
+// }
+
+
+const looper = () => {
+  numsArr.forEach(e => e.forEach((f,i) => {
+    if(f % 2 === 0){e[i] = 'even'}
+    else{e[i] = 'odd'}
+  }))
+  return numsArr
+}
